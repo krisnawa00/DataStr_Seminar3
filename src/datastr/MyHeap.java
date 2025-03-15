@@ -83,6 +83,32 @@ public class MyHeap<Ttype> {
 			heap[index2] = temp;	
 		}
 		
+		public Ttype dequeue() throws Exception{
+			if(isEmpty()) {
+				throw new Exception("Kaudze ir tuksa");
+			}
+			Ttype maxElement = heap[0];
+			
+			heap[0] = heap[counter - 1];
+			counter--;
+			return maxElement;
+		}
+		private void reheapDown (int currentParentIndex) {
+			int currentLeftChildIndex = currentParentIndex * 2 + 1;
+			int currentRightChildIndex = currentParentIndex * 2 + 2;
+			
+			if (currentLeftChildIndex < counter && currentRightChildIndex < counter) {
+				//noskaidrot, vai kreisai berns ir lielaks par labo
+				// jai ir salidzinam so kreiso bernu ar pasu vecaku
+				// ja vecaks ir mazaks, tad mainam vietam un izsaucam rekursiju
+				// ja kreisas berns ir mazaks par labo bernu
+				// ja ir tad salidzinam labo bernu ar pasu vecaku
+				//ja vecaks ir mazaks, tad mainam vietam un izsaucam rekursiju
+			}
+			
+			if(currentLeftChildIndex < counter  && currentRightChildIndex >= counter) {
+				
+			}
+		}
 		
-
 }
