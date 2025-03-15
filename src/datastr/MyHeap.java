@@ -97,17 +97,32 @@ public class MyHeap<Ttype> {
 			int currentLeftChildIndex = currentParentIndex * 2 + 1;
 			int currentRightChildIndex = currentParentIndex * 2 + 2;
 			
-			if (currentLeftChildIndex < counter && currentRightChildIndex < counter) {
-				//noskaidrot, vai kreisai berns ir lielaks par labo
-				// jai ir salidzinam so kreiso bernu ar pasu vecaku
-				// ja vecaks ir mazaks, tad mainam vietam un izsaucam rekursiju
-				// ja kreisas berns ir mazaks par labo bernu
-				// ja ir tad salidzinam labo bernu ar pasu vecaku
-				//ja vecaks ir mazaks, tad mainam vietam un izsaucam rekursiju
+			if (currentLeftChildIndex < counter && currentRightChildIndex < counter) 
+			{
+				
+				
+				if(((Comparable)(heap[currentLeftChildIndex])).compareTo(heap[currentRightChildIndex])==1) {
+					if ( ((Comparable)heap[currentLeftChildIndex]).compareTo(currentParentIndex)==1) {
+						swap(currentParentIndex, currentLeftChildIndex);
+						reheapDown(currentRightChildIndex);
+					}
+				}
+				else {
+					if ( ((Comparable)heap[currentLeftChildIndex]).compareTo(currentParentIndex)==1) {
+						swap(currentParentIndex, currentLeftChildIndex);
+						reheapDown(currentRightChildIndex);
+					}
+					
+					
+				}
+
 			}
 			
 			if(currentLeftChildIndex < counter  && currentRightChildIndex >= counter) {
-				
+				if ( ((Comparable)heap[currentLeftChildIndex]).compareTo(currentParentIndex)==1) {
+					swap(currentParentIndex, currentLeftChildIndex);
+					
+				}
 			}
 		}
 		
